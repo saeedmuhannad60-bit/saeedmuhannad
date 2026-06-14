@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.Pages.ExportItemsPage"
+             Title="Export Items">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Label Text="Export Items to CSV"
+                   FontSize="22" FontAttributes="Bold" />
+            <Label Text="Saves all your items to a .csv file you can open in Excel or share by WhatsApp / email."
+                   FontSize="13" TextColor="Gray" />
+
+            <Button x:Name="ExportButton"
+                    Text="Export and share"
+                    Clicked="OnExport" />
+
+            <ActivityIndicator x:Name="Busy" IsRunning="False" IsVisible="False" />
+            <Label x:Name="ResultLabel" FontSize="14" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

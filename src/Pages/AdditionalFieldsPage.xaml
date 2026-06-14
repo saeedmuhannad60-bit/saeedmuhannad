@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.Pages.AdditionalFieldsPage"
+             Title="Additional Fields">
+    <Grid RowDefinitions="Auto,Auto,*" Padding="16" RowSpacing="12">
+
+        <Label Grid.Row="0" Text="Additional Fields"
+               FontSize="22" FontAttributes="Bold" />
+
+        <Frame Grid.Row="1" Padding="12" BorderColor="LightGray">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Add a custom field (e.g. Brand, Size, Warranty):" FontSize="13" />
+                <Entry x:Name="FieldNameEntry" Placeholder="Field name" />
+                <Picker x:Name="FieldTypePicker" Title="Type">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>text</x:String>
+                            <x:String>number</x:String>
+                            <x:String>date</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Text="Add field" Clicked="OnAddField" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <CollectionView Grid.Row="2" x:Name="FieldsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto,Auto" Padding="6">
+                        <Label Text="{Binding Name}" VerticalOptions="Center" />
+                        <Label Grid.Column="1" Text="{Binding FieldType}"
+                               TextColor="Gray" VerticalOptions="Center" Margin="10,0" />
+                        <Button Grid.Column="2" Text="Delete"
+                                Clicked="OnDeleteField"
+                                CommandParameter="{Binding Id}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="No custom fields yet." HorizontalOptions="Center"
+                       Margin="20" TextColor="Gray" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>

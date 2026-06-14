@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.Pages.LowStockPage"
+             Title="Low Stock">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="10">
+
+        <Label Grid.Row="0" Text="Low Stock / Reorder list"
+               FontSize="22" FontAttributes="Bold" />
+
+        <CollectionView Grid.Row="1" x:Name="LowStockList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="8">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding Category}" FontSize="12" TextColor="Gray" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                            <Label Text="{Binding Quantity, StringFormat='In stock: {0}'}"
+                                   TextColor="Red" FontAttributes="Bold" />
+                            <Label Text="{Binding LowStockThreshold, StringFormat='Reorder at: {0}'}"
+                                   FontSize="12" TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="All items are above their reorder level. 🎉"
+                       HorizontalOptions="Center" Margin="20" TextColor="Gray" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <Button Grid.Row="2" x:Name="ShareButton"
+                Text="Share reorder list" Clicked="OnShare" />
+    </Grid>
+</ContentPage>

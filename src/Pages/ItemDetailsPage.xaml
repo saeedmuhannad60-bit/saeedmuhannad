@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.Pages.ItemDetailsPage"
+             Title="Item Details">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="Item Details" FontSize="22" FontAttributes="Bold" />
+
+            <Label Text="Name" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="NameEntry" Placeholder="Item name" />
+
+            <Label Text="SKU / Barcode" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="SkuEntry" Placeholder="Code" />
+
+            <Label Text="Category" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="CategoryEntry" Placeholder="e.g. Tools" />
+
+            <Label Text="Unit" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="UnitEntry" Placeholder="pcs / box / kg / m" />
+
+            <Label Text="Purchase price" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="PurchaseEntry" Keyboard="Numeric" />
+
+            <Label Text="Sale price" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="SaleEntry" Keyboard="Numeric" />
+
+            <Label Text="Quantity in stock" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="QuantityEntry" Keyboard="Numeric" />
+
+            <Label Text="Low-stock / reorder level" FontSize="12" TextColor="Gray" />
+            <Entry x:Name="ThresholdEntry" Keyboard="Numeric" />
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,8" />
+
+            <Label x:Name="CustomHeader" Text="Additional Fields"
+                   FontAttributes="Bold" IsVisible="False" />
+            <!-- Custom field inputs are added here at runtime -->
+            <VerticalStackLayout x:Name="CustomFieldsContainer" Spacing="8" />
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,8" />
+
+            <Frame Padding="10" BackgroundColor="#F5F5F5" BorderColor="Transparent">
+                <Label x:Name="ProfitSummary" FontSize="13" />
+            </Frame>
+
+            <Button x:Name="SaveButton" Text="Save" Clicked="OnSave" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

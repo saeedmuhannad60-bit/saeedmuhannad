@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.Pages.ItemPnLPage"
+             Title="Item wise PnL">
+    <Grid RowDefinitions="Auto,Auto,*" Padding="16" RowSpacing="10">
+
+        <Label Grid.Row="0" Text="Item-wise Profit &amp; Loss"
+               FontSize="22" FontAttributes="Bold" />
+
+        <Frame Grid.Row="1" Padding="12" BorderColor="LightGray">
+            <HorizontalStackLayout Spacing="20">
+                <VerticalStackLayout>
+                    <Label Text="Total profit" FontSize="12" TextColor="Gray" />
+                    <Label x:Name="TotalProfitLabel" Text="0.00"
+                           FontSize="18" FontAttributes="Bold" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Total revenue" FontSize="12" TextColor="Gray" />
+                    <Label x:Name="TotalRevenueLabel" Text="0.00" FontSize="18" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <CollectionView Grid.Row="2" x:Name="PnlList">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,Auto,Auto" Padding="6" BackgroundColor="#EEEEEE">
+                    <Label Text="Item" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="Units" FontAttributes="Bold" Margin="10,0" />
+                    <Label Grid.Column="2" Text="Profit" FontAttributes="Bold" />
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto,Auto" Padding="6">
+                        <Label Text="{Binding ItemName}" />
+                        <Label Grid.Column="1" Text="{Binding UnitsSold}" Margin="10,0" />
+                        <Label Grid.Column="2" Text="{Binding ProfitDisplay}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="No sales recorded yet." HorizontalOptions="Center" Margin="20" TextColor="Gray" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>
