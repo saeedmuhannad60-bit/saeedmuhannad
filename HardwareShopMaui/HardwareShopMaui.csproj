@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<!-- Android-only so it builds straight to an APK. Add ;net8.0-ios etc. if you want more. -->
-		<TargetFramework>net8.0-android</TargetFramework>
+		<!-- Android-only so it builds straight to an APK. Add ;net10.0-ios etc. if you want more. -->
+		<TargetFramework>net10.0-android</TargetFramework>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>HardwareShopMaui</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -33,11 +33,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- If Visual Studio complains about a version, let it pick the version that matches
-		     your installed .NET MAUI workload (right-click solution > Manage NuGet Packages). -->
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.91" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.91" />
-		<PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.10" />
+		<!-- Microsoft.Maui.Controls is supplied automatically by the MAUI workload (UseMaui=true),
+		     so it is intentionally NOT listed here — that avoids version-mismatch errors.
+		     Only extra (non-MAUI) packages go below. -->
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
 	</ItemGroup>
 
 </Project>

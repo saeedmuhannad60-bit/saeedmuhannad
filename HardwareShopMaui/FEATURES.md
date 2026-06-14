@@ -49,7 +49,7 @@ Shared data layer: `Services/DatabaseService.cs` (uses **Microsoft.Data.Sqlite**
    is needed for share; file picking works out of the box.
 
 5. **Build the APK** in Visual Studio:
-   `Build ▸ Archive…` (or `dotnet publish -f net8.0-android -c Release`), then sign with
+   `Build ▸ Archive…` (or `dotnet publish -f net10.0-android -c Release`), then sign with
    your existing keystore — the same one that produced `com.muhannad.hardwareshop`.
 
 ---

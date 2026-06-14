@@ -23,17 +23,17 @@ dotnet workload install maui
 cd HardwareShopMaui
 
 # unsigned APK for quick testing
-dotnet build -t:Run -f net8.0-android
+dotnet build -t:Run -f net10.0-android
 
 # signed release APK
-dotnet publish -f net8.0-android -c Release \
+dotnet publish -f net10.0-android -c Release \
   /p:AndroidKeyStore=true \
   /p:AndroidSigningKeyStore=myapp.keystore \
   /p:AndroidSigningKeyAlias=myalias \
   /p:AndroidSigningKeyPass=*** \
   /p:AndroidSigningStorePass=***
 ```
-The signed APK appears under `HardwareShopMaui/bin/Release/net8.0-android/`.
+The signed APK appears under `HardwareShopMaui/bin/Release/net10.0-android/`.
 
 > Use the **same keystore** that signed your current `com.muhannad.hardwareshop` build so
 > the app updates in place instead of installing as a separate copy.
