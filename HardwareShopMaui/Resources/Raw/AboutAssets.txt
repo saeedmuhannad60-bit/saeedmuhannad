@@ -1,0 +1,2 @@
+Files placed in this Resources/Raw folder are bundled into the app as raw assets.
+Read them at runtime with FileSystem.OpenAppPackageFileAsync("yourfile.ext").

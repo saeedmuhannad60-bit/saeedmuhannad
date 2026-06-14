@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HardwareShopMaui.MainPage"
+             Title="Hardware Shop">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="More" FontSize="26" FontAttributes="Bold" />
+            <Label Text="Tap an option" FontSize="13" TextColor="Gray" />
+
+            <Button Text="Item Details (add / edit item)" Clicked="OnItemDetails" />
+            <Button Text="Import Items" Clicked="OnImport" />
+            <Button Text="Export Items" Clicked="OnExport" />
+            <Button Text="Item wise PnL" Clicked="OnPnL" />
+            <Button Text="Additional Fields" Clicked="OnAdditionalFields" />
+            <Button Text="Low Stock" Clicked="OnLowStock" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
