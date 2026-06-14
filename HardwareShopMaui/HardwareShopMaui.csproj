@@ -33,9 +33,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- Microsoft.Maui.Controls is supplied automatically by the MAUI workload (UseMaui=true),
-		     so it is intentionally NOT listed here — that avoids version-mismatch errors.
-		     Only extra (non-MAUI) packages go below. -->
+		<!-- $(MauiVersion) is defined by the installed MAUI workload, so these always match
+		     the SDK on whatever machine builds (CI or Visual Studio) — no hardcoded version. -->
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
 	</ItemGroup>
 

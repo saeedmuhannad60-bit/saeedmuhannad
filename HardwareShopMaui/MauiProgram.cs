@@ -11,10 +11,6 @@ public static class MauiProgram
         // To use custom fonts, drop the .ttf files into Resources/Fonts and register them here:
         //   .ConfigureFonts(fonts => fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"));
 
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
-
         return builder.Build();
     }
 }
