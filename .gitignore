@@ -2,6 +2,11 @@
 *.apk
 *.aab
 *.idsig
+*.zip
+
+# .NET build output
+bin/
+obj/
 
 # OS / editor cruft
 .DS_Store
