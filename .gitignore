@@ -1,0 +1,8 @@
+# SQLite database (auto-created on first run)
+/data/*.sqlite
+/data/*.sqlite-journal
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
