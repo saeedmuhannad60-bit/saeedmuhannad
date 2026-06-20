@@ -52,23 +52,7 @@ require __DIR__ . '/includes/header.php';
     <?php else: ?>
         <div class="menu-grid">
             <?php foreach ($featured as $item): ?>
-                <article class="menu-card">
-                    <div class="menu-card-thumb"><?= e(mb_substr($item['name'], 0, 1)) ?></div>
-                    <div class="menu-card-body">
-                        <span class="tag"><?= e($item['category_name']) ?></span>
-                        <h3><?= e($item['name']) ?></h3>
-                        <p class="muted"><?= e($item['description']) ?></p>
-                        <div class="menu-card-foot">
-                            <span class="price"><?= money((float) $item['price']) ?></span>
-                            <form method="post" action="<?= e(url('cart.php')) ?>">
-                                <?= csrf_field() ?>
-                                <input type="hidden" name="action" value="add">
-                                <input type="hidden" name="item_id" value="<?= (int) $item['id'] ?>">
-                                <button class="btn btn-primary btn-sm" type="submit">Add to Cart</button>
-                            </form>
-                        </div>
-                    </div>
-                </article>
+                <?= render_menu_card($item, true) ?>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>

@@ -39,7 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } elseif ($action === 'delete') {
         $id = (int) ($_POST['id'] ?? 0);
-        $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items WHERE category_id = ' . $id)->fetchColumn();
+        $countStmt = $pdo->prepare('SELECT COUNT(*) FROM menu_items WHERE category_id = ?');
+        $countStmt->execute([$id]);
+        $count = (int) $countStmt->fetchColumn();
         if ($count > 0) {
             flash('Cannot delete: category still has ' . $count . ' item(s).', 'error');
         } else {

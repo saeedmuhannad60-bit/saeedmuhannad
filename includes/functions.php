@@ -188,3 +188,36 @@ function status_label(string $status): string
 {
     return ucwords(str_replace('_', ' ', $status));
 }
+
+/**
+ * Render a single menu item card (shared between the home and menu pages).
+ *
+ * @param array $item        Row from menu_items (may include category_name).
+ * @param bool  $showCategory Show the category tag above the name.
+ */
+function render_menu_card(array $item, bool $showCategory = false): string
+{
+    ob_start();
+    ?>
+    <article class="menu-card">
+        <div class="menu-card-thumb"><?= e(mb_substr((string) $item['name'], 0, 1)) ?></div>
+        <div class="menu-card-body">
+            <?php if ($showCategory && !empty($item['category_name'])): ?>
+                <span class="tag"><?= e($item['category_name']) ?></span>
+            <?php endif; ?>
+            <h3><?= e($item['name']) ?></h3>
+            <p class="muted"><?= e($item['description']) ?></p>
+            <div class="menu-card-foot">
+                <span class="price"><?= money((float) $item['price']) ?></span>
+                <form method="post" action="<?= e(url('cart.php')) ?>">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="item_id" value="<?= (int) $item['id'] ?>">
+                    <button class="btn btn-primary btn-sm" type="submit">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </article>
+    <?php
+    return (string) ob_get_clean();
+}
